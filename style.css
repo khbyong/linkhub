@@ -111,8 +111,140 @@ h1 {
   color: rgba(30, 30, 30, 0.68);
 }
 
+.feedback {
+  margin-top: 18px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(30, 30, 30, 0.10);
+  border-radius: 16px;
+}
+
+.feedbackTitle {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.feedbackHint {
+  font-size: 13px;
+  color: rgba(30, 30, 30, 0.62);
+  margin-bottom: 12px;
+}
+
+.feedbackForm .hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+.field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(30, 30, 30, 0.55);
+  margin-bottom: 6px;
+}
+
+textarea,
+input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 30, 30, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  outline: none;
+}
+
+textarea:focus,
+input:focus {
+  border-color: rgba(30, 30, 30, 0.26);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.segmented {
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(30, 30, 30, 0.12);
+  background: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+}
+
+.segBtn {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: rgba(30, 30, 30, 0.75);
+  cursor: pointer;
+}
+
+.segBtn.active {
+  background: rgba(30, 30, 30, 0.08);
+  border-color: rgba(30, 30, 30, 0.12);
+  color: rgba(30, 30, 30, 0.95);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.submit {
+  border: 1px solid rgba(30, 30, 30, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 13px;
+  color: rgba(30, 30, 30, 0.7);
+}
+
+.status[data-kind="ok"] {
+  color: rgba(26, 92, 55, 0.9);
+}
+
+.status[data-kind="err"] {
+  color: rgba(140, 35, 35, 0.9);
+}
+
+.status[data-kind="warn"] {
+  color: rgba(120, 82, 18, 0.9);
+}
+
+@media (min-width: 620px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .footer {
-  margin-top: 28px;
+  margin-top: 18px;
   color: rgba(30, 30, 30, 0.65);
   font-size: 14px;
 }

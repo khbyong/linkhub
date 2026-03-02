@@ -23,6 +23,42 @@
 
       <section id="links" class="links" aria-label="Links"></section>
 
+      <section class="feedback" aria-label="Quick feedback">
+        <div class="feedbackTitle">Quick feedback</div>
+        <div class="feedbackHint">One line is enough. Optional name + contact so we can follow up.</div>
+
+        <form id="feedbackForm" class="feedbackForm">
+          <input class="hp" type="text" name="website" autocomplete="off" tabindex="-1" />
+
+          <label class="field">
+            <div class="fieldLabel">Your one-liner</div>
+            <textarea id="fbMessage" rows="3" placeholder="What should Echo return to you — and when?" required></textarea>
+          </label>
+
+          <div class="row">
+            <label class="field">
+              <div class="fieldLabel">Name (optional)</div>
+              <input id="fbName" type="text" placeholder="Brian" />
+            </label>
+
+            <div class="field">
+              <div class="fieldLabel">Contact (optional)</div>
+              <div class="segmented" role="tablist" aria-label="Contact method">
+                <button type="button" class="segBtn active" data-method="telegram">Telegram</button>
+                <button type="button" class="segBtn" data-method="instagram">Instagram</button>
+                <button type="button" class="segBtn" data-method="email">Email</button>
+              </div>
+              <input id="fbContact" type="text" placeholder="@handle or email" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="fbSubmit" class="submit" type="submit">Submit</button>
+            <div id="fbStatus" class="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </section>
+
       <footer class="footer">
         <div id="footerText"></div>
         <div class="fineprint">Tip: keep this page open while you demo so people can scan anytime.</div>
@@ -35,6 +71,7 @@
         const cfg = window.LINKHUB || {};
         const title = cfg.title || "Echo";
         const subtitle = cfg.subtitle || "gentle returns";
+        const feedbackEndpoint = cfg.feedbackEndpoint || "";
         document.title = `${title} — link hub`;
 
         const titleEl = document.getElementById("title");
@@ -65,6 +102,81 @@
           a.appendChild(detail);
           linksEl.appendChild(a);
         }
+
+        // Quick feedback
+        let contactMethod = "telegram";
+        const form = document.getElementById("feedbackForm");
+        const statusEl = document.getElementById("fbStatus");
+        const submitBtn = document.getElementById("fbSubmit");
+        const messageEl = document.getElementById("fbMessage");
+        const nameEl = document.getElementById("fbName");
+        const contactEl = document.getElementById("fbContact");
+        const segBtns = Array.from(document.querySelectorAll(".segBtn"));
+
+        function setStatus(text, kind) {
+          statusEl.textContent = text || "";
+          statusEl.dataset.kind = kind || "";
+        }
+
+        function setMethod(method) {
+          contactMethod = method;
+          for (const b of segBtns) {
+            b.classList.toggle("active", b.dataset.method === method);
+          }
+          contactEl.placeholder =
+            method === "email" ? "email (optional)" : "@handle (optional)";
+        }
+
+        for (const b of segBtns) {
+          b.addEventListener("click", () => setMethod(b.dataset.method));
+        }
+        setMethod(contactMethod);
+
+        if (!feedbackEndpoint) {
+          setStatus("(feedback endpoint not configured)", "warn");
+          submitBtn.disabled = true;
+        }
+
+        form.addEventListener("submit", async (ev) => {
+          ev.preventDefault();
+          if (!feedbackEndpoint) return;
+
+          const hp = form.querySelector('input[name="website"]');
+          const payload = {
+            message: messageEl.value.trim(),
+            name: nameEl.value.trim(),
+            contact_method: contactMethod,
+            contact: contactEl.value.trim(),
+            website: hp ? hp.value : "",
+            user_agent: navigator.userAgent,
+          };
+
+          if (!payload.message) {
+            setStatus("please add a one-liner.", "warn");
+            return;
+          }
+
+          submitBtn.disabled = true;
+          setStatus("sending…", "info");
+
+          try {
+            const res = await fetch(feedbackEndpoint, {
+              method: "POST",
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            setStatus("thank you — got it.", "ok");
+            messageEl.value = "";
+            nameEl.value = "";
+            contactEl.value = "";
+          } catch (err) {
+            setStatus("couldn’t submit (try again in a moment).", "err");
+          } finally {
+            submitBtn.disabled = false;
+          }
+        });
 
         footerEl.textContent = cfg.footer || "";
       })();

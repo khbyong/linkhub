@@ -5,6 +5,9 @@ window.LINKHUB = {
   title: "Echo",
   subtitle: "gentle returns",
 
+  // Google Apps Script Web App endpoint (exec URL)
+  feedbackEndpoint: "https://script.google.com/macros/s/AKfycbz-luUuOMtF9m2KuRctXLI6821wDRfUKx-W6bUmeOkDfmG294UMDAfwY646I6f9bb0m/exec",
+
   links: [
     {
       label: "Add contact",
@@ -37,8 +40,8 @@ window.LINKHUB = {
       kind: "secondary",
     },
     {
-      label: "Feedback form",
-      detail: "2 minutes, helps a lot",
+      label: "Longer feedback",
+      detail: "(optional) open a full form",
       href: "https://forms.gle/",
       kind: "secondary",
     },
