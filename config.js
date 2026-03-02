@@ -10,21 +10,15 @@ window.LINKHUB = {
 
   links: [
     {
-      label: "Add contact",
-      detail: "save our contact card",
-      href: "brian.vcf",
+      label: "TestFlight",
+      detail: "get the latest build",
+      href: "https://testflight.apple.com/",
       kind: "primary",
     },
     {
       label: "Message on Telegram",
       detail: "fastest way to reach us",
       href: "https://t.me/khbyong",
-      kind: "secondary",
-    },
-    {
-      label: "TestFlight",
-      detail: "get the latest build",
-      href: "https://testflight.apple.com/",
       kind: "secondary",
     },
     {
@@ -37,6 +31,12 @@ window.LINKHUB = {
       label: "Instagram — @phrypy",
       detail: "follow the build journey",
       href: "https://instagram.com/phrypy",
+      kind: "secondary",
+    },
+    {
+      label: "Add contact",
+      detail: "save our contact card",
+      href: "brian.vcf",
       kind: "secondary",
     },
     {
