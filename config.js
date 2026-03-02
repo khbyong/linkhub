@@ -12,7 +12,7 @@ window.LINKHUB = {
     {
       label: "TestFlight",
       detail: "get the latest build",
-      href: "https://testflight.apple.com/",
+      href: "https://testflight.apple.com/join/c6kSkeQp",
       kind: "primary",
     },
     {
