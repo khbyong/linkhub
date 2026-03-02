@@ -5,9 +5,18 @@ FN:Brian Yong
 ORG:phrypy
 TITLE:Builder
 EMAIL;TYPE=INTERNET:phrypy@gmail.com
-URL:https://khbyong.github.io/linkhub/
-URL;TYPE=Telegram:https://t.me/khbyong
-NOTE:Telegram: @khbyong
-X-SOCIALPROFILE;type=instagram:https://instagram.com/bybri4n
-X-SOCIALPROFILE;type=instagram:https://instagram.com/phrypy
+
+item1.URL:https://khbyong.github.io/linkhub/
+item1.X-ABLabel:Link hub
+
+item2.URL:https://t.me/khbyong
+item2.X-ABLabel:Telegram
+
+item3.URL:https://instagram.com/bybri4n
+item3.X-ABLabel:Instagram (@bybri4n)
+
+item4.URL:https://instagram.com/phrypy
+item4.X-ABLabel:Instagram (@phrypy)
+
+NOTE:Echo — gentle returns
 END:VCARD
