@@ -61,7 +61,7 @@
 
       <footer class="footer">
         <div id="footerText"></div>
-        <div class="fineprint">Tip: keep this page open while you demo so people can scan anytime.</div>
+        <div class="fineprint" id="funFact"></div>
       </footer>
     </main>
 
@@ -183,6 +183,17 @@
         });
 
         footerEl.textContent = cfg.footer || "";
+
+        const funFacts = [
+          "fun fact: ‘echo’ isn’t memory — it’s return.",
+          "fun fact: we built this QR hub so the deck can stay minimal.",
+          "fun fact: one-liners go straight into a spreadsheet (quietly).",
+          "fun fact: we’re optimizing for calm, not dopamine.",
+        ];
+        const funFactEl = document.getElementById("funFact");
+        if (funFactEl) {
+          funFactEl.textContent = funFacts[Math.floor(Math.random() * funFacts.length)];
+        }
       })();
     </script>
   </body>
