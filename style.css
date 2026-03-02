@@ -212,12 +212,19 @@ input:focus {
 }
 
 .submit {
+  -webkit-appearance: none;
+  appearance: none;
   border: 1px solid rgba(30, 30, 30, 0.22);
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.75);
+  color: rgba(30, 30, 30, 0.92);
   border-radius: 999px;
   padding: 10px 14px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.submit:active {
+  transform: translateY(0.5px);
 }
 
 .submit:disabled {
