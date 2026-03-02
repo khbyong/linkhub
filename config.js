@@ -43,7 +43,7 @@ window.LINKHUB = {
     {
       label: "Longer feedback",
       detail: "(optional) open a full form",
-      href: "https://forms.gle/",
+      href: "https://docs.google.com/forms/d/e/1FAIpQLSfplv4kOj14h1BnhfSNDpZGH44UVLeM6ec4bg3ck1r8nLh7wA/viewform",
       kind: "secondary",
     },
   ],
