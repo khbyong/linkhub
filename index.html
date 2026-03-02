@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Echo — link hub</title>
+    <meta name="description" content="Echo: gentle returns. Links for TestFlight, Instagram, and feedback." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <div class="kicker">link hub</div>
+        <h1 id="title">Echo</h1>
+        <div id="subtitle" class="subtitle">gentle returns</div>
+      </header>
+
+      <section id="links" class="links" aria-label="Links"></section>
+
+      <footer class="footer">
+        <div id="footerText"></div>
+        <div class="fineprint">Tip: keep this page open while you demo so people can scan anytime.</div>
+      </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script>
+      (function () {
+        const cfg = window.LINKHUB || {};
+        const title = cfg.title || "Echo";
+        const subtitle = cfg.subtitle || "gentle returns";
+        document.title = `${title} — link hub`;
+
+        const titleEl = document.getElementById("title");
+        const subtitleEl = document.getElementById("subtitle");
+        const linksEl = document.getElementById("links");
+        const footerEl = document.getElementById("footerText");
+
+        titleEl.textContent = title;
+        subtitleEl.textContent = subtitle;
+
+        const links = Array.isArray(cfg.links) ? cfg.links : [];
+        for (const link of links) {
+          const a = document.createElement("a");
+          a.className = `card ${link.kind === "primary" ? "primary" : "secondary"}`;
+          a.href = link.href || "#";
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+
+          const label = document.createElement("div");
+          label.className = "label";
+          label.textContent = link.label || "Link";
+
+          const detail = document.createElement("div");
+          detail.className = "detail";
+          detail.textContent = link.detail || "";
+
+          a.appendChild(label);
+          a.appendChild(detail);
+          linksEl.appendChild(a);
+        }
+
+        footerEl.textContent = cfg.footer || "";
+      })();
+    </script>
+  </body>
+</html>
