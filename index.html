@@ -87,8 +87,12 @@
           const a = document.createElement("a");
           a.className = `card ${link.kind === "primary" ? "primary" : "secondary"}`;
           a.href = link.href || "#";
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
+          if (link.sameTab) {
+            a.target = "_self";
+          } else {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          }
 
           const label = document.createElement("div");
           label.className = "label";

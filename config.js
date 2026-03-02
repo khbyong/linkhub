@@ -38,6 +38,7 @@ window.LINKHUB = {
       detail: "save our contact card",
       href: "brian.vcf",
       kind: "secondary",
+      sameTab: true,
     },
     {
       label: "Longer feedback",
