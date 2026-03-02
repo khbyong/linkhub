@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Yong;Brian;;;
+FN:Brian Yong
+ORG:phrypy
+TITLE:Builder
+EMAIL;TYPE=INTERNET:phrypy@gmail.com
+URL:https://khbyong.github.io/linkhub/
+URL;TYPE=Telegram:https://t.me/khbyong
+NOTE:Telegram: @khbyong
+X-SOCIALPROFILE;type=instagram:https://instagram.com/bybri4n
+X-SOCIALPROFILE;type=instagram:https://instagram.com/phrypy
+END:VCARD

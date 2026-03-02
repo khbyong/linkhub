@@ -7,10 +7,16 @@ window.LINKHUB = {
 
   links: [
     {
+      label: "Add contact",
+      detail: "save our contact card",
+      href: "brian.vcf",
+      kind: "primary",
+    },
+    {
       label: "TestFlight",
       detail: "get the latest build",
       href: "https://testflight.apple.com/",
-      kind: "primary",
+      kind: "secondary",
     },
     {
       label: "Instagram — @bybri4n",
