@@ -13,6 +13,12 @@ window.LINKHUB = {
       kind: "primary",
     },
     {
+      label: "Message on Telegram",
+      detail: "fastest way to reach us",
+      href: "https://t.me/khbyong",
+      kind: "secondary",
+    },
+    {
       label: "TestFlight",
       detail: "get the latest build",
       href: "https://testflight.apple.com/",
