@@ -46,6 +46,12 @@ window.LINKHUB = {
       href: "https://docs.google.com/forms/d/e/1FAIpQLSfplv4kOj14h1BnhfSNDpZGH44UVLeM6ec4bg3ck1r8nLh7wA/viewform",
       kind: "secondary",
     },
+    {
+      label: "Other build: Year Mood Calendar",
+      detail: "a tiny daily wallpaper ritual",
+      href: "https://github.com/khbyong/Year-Mood-Calendar",
+      kind: "secondary",
+    },
   ],
 
   footer: "thanks for helping us make this calmer.",
