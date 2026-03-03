@@ -49,7 +49,7 @@ window.LINKHUB = {
     {
       label: "Other build: Year Mood Calendar",
       detail: "a tiny daily wallpaper ritual",
-      href: "https://github.com/khbyong/Year-Mood-Calendar",
+      href: "https://www.notion.so/Year-Mood-Calendar-Support-31592abd002280dda332d77b9eefb52a?source=copy_link",
       kind: "secondary",
     },
   ],
